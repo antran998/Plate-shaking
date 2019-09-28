@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      #canvasDraw{
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body data-rsssl=1>
+  	<canvas id="canvasDraw" width="1000" height="600"></canvas>
+
+  <script>
+
+    // $(function() {
+    //     var points = [], numPoints = 100, i, canvas, context, width, height, gravity = 0.1, emitter;
+        
+    //     canvas = $("#canvas")[0];
+    //     width = canvas.width;
+    //     height = canvas.height;
+    //     context = canvas.getContext("2d");
+        
+    //     emitter = {
+    //         x:width / 2, 
+    //         y:height
+    //     };
+    //     console.log(Math.random() * -6 - 3);
+    //     function initPoint(p) {
+    //         p.x = emitter.x;
+    //         p.y = emitter.y;
+    //         p.vx = Math.random() * 5 - 2;
+    //         p.vy = Math.random() * -6 - 3;
+    //         p.radius = Math.random() * 4 + 1;
+    //     }
+        
+    //     function update() {
+    //         var i, len = points.length;
+    //         for(i = 0; i < len; i += 1) {
+    //             points[i].vy += gravity;
+    //             points[i].x += points[i].vx;
+    //             points[i].y += points[i].vy;
+    //             if(points[i].x > width ||
+    //                points[i].x < 0 ||
+    //                points[i].y > height ||
+    //                points[i].y < 0) {
+    //                 initPoint(points[i]);
+    //             }
+    //         }
+    //     }
+        
+    //     function draw() {
+    //         var i, len = points.length;
+    //         context.clearRect(0, 0, width, height);
+    //         for(i = 0; i < len; i += 1) {
+    //             context.beginPath();
+    //             context.arc(points[i].x, points[i].y, points[i].radius, 0, Math.PI * 2, false);
+    //             context.fillStyle = "#9cf000";
+    //             context.fill();
+    //         }
+    //     }
+        
+    //     function addPoint() {
+    //         var point;
+    //         if(points.length < numPoints) {
+    //             point = {};
+    //             initPoint(point);
+    //             points.push(point);
+    //         }
+    //     }
+        
+    //     setInterval(function() {
+    //         addPoint();
+    //         update();
+    //         draw();
+    //     }, 10);
+    // });
+
+    var ctx = canvasDraw.getContext('2d');
+
+    eruption()
+    function eruption(){
+        var erupAnimation
+        var chipObj = [];
+
+        var emitter = {
+            x: canvasDraw.width/2,
+            y: canvasDraw.height
+        }
+
+        var gravity=0.5;
+
+        var chip = new Image();
+        chip.src = 'img/chips1.png';
+        var chipAmount = 300;
+
+        for(var i =1;i<=500;i++){
+            chipObj[i] = {
+                x: emitter.x,
+                y: emitter.y,
+                vx: Math.floor(Math.random() * (3 + 2) ) -2,
+                vy: Math.floor(Math.random() * (-20 + 40) ) - 40,
+                radius: Math.floor(Math.random() * (60 - 40) ) + 40,
+                chipNumber: Math.floor(Math.random() * (4 - 0) ) - 0,
+            }
+        }
+
+        console.log(chipObj[1].vx);
+        emit();
+
+        function emit(){
+            ctx.clearRect(0,0,canvasDraw.width,canvasDraw.height);
+
+            for(var i =1;i<=chipAmount;i++){
+                chipObj[i].vy +=gravity;
+                chipObj[i].x += chipObj[i].vx;
+                chipObj[i].y += chipObj[i].vy;
+
+                ctx.save();
+                ctx.drawImage(chip,chip.height*chipObj[i].chipNumber+chipObj[i].chipNumber*10,0,chip.height,chip.height,chipObj[i].x,chipObj[i].y,chip.height,chip.height);
+                ctx.restore();
+
+                 if(chipObj[i].y<canvasDraw.height){
+                    chipObj[i].cond = 1;
+                }
+
+                if(chipObj[i].x > canvasDraw.width ||
+                    chipObj[i].x < 0 ||
+                    chipObj[i].y > canvasDraw.height){
+
+                    chipObj[i] = {
+                        x: emitter.x,
+                        y: emitter.y,
+                        vx: Math.floor(Math.random() * (3 + 2) ) -2,
+                        vy: Math.floor(Math.random() * (-20 + 40) ) - 40,
+                        radius: Math.floor(Math.random() * (60 + 40) ) - 40,
+                        chipNumber: Math.floor(Math.random() * (4 - 0) ) - 0
+                    }
+                }
+            }
+            if(chipAmount<500){
+                chipAmount++;
+            }
+
+            erupAnimation = requestAnimationFrame(emit);
+        }
+    }
+    </script>
+  </body>
+</html>      

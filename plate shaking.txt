@@ -1,0 +1,31 @@
+﻿1.start.js
++ vẽ lên canvas và set path từng ô nút trong canvas
+
+2.click-hover.js
++ File có chức năng như tên
++ alertError() là hàm báo lỗi khi click ko đủ điều kiện( chưa nhấn gì mà bấm bet, chọn ô cược chưa chọn tiền và ngược lại)
++ dòng 367 hàm spinShaker() là hàm xoay shaker khi click vào cúp. Hàm viết ở file shaking.js
+
+3.backgroundFlow.js
++ File có chức năng tạo background động
+
+4.shaking.js
++ File có chức năng tạo xoay shaker
++ Hàm spinShaker() dùng để xoay shaker
++ dòng 42 showText(1) hàm đếm giờ countdown nằm ở file textOnShaker.js
+
+5.textOnShaker.js
++ File show coundown hoặc text , typeCon ==0 là số, typeCon !=0 là text
+
+6.result.js
++ File dùng để show kết quả.
++ Hàm showResult() trả về những thẻ xanh,đỏ trên shaker ở vị trí bất kì
++ Dòng 60 showReward() là hàm show hiệu ứng thắng, thua và hòa, viết ở trang reward.js
+
+7.reward.js
++ Hàm showReward() dùng để show hiệu ứng phóng chip và zoom chữ
++ Parameter --final-- của hàm (1:Win,2:Lost,3:Draw)
+
+8.boardsite.js
++ Hàm showMoney là hàm deposite money
++ Hàm historyBoard() là hàm show lịch sử trận bằng cách truyền mảng, nó sẽ show phần tử thứ n-1 vào bảng [0][0]

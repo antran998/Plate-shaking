@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+		#canvasDraw{
+			border: 1px solid blue;
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<canvas id="canvasDraw"></canvas>
+	<script type="text/javascript">
+		canvasDraw.width = 500;
+		canvasDraw.height = 500;
+
+		// var shaker = new Image();
+		// shaker.src = 'img/shaker.png';
+		var ctx = canvasDraw.getContext('2d');
+		// var animation;
+		// drawshaker();
+
+		// var speed = 50;
+		// var reverse =0;
+
+		// function drawshaker(){
+		// 	ctx.clearRect(0,0,canvasDraw.width,canvasDraw.height);
+
+		// 	ctx.save();
+		// 	ctx.translate(148+280/2,188+282/2);
+		// 	ctx.rotate(speed * Math.PI / 180);
+		// 	// ctx.drawImage(shaker,0,0);
+		// 	ctx.drawImage(shaker,148,188,280,282,-140,-141,280,282);
+		// 	ctx.restore();
+			
+		// 	if(reverse==0){
+		// 		speed*=1.01;
+		// 		if(speed>=360*150+5){
+		// 			reverse=1;
+		// 		}
+		// 	}
+		// 	else{
+		// 		speed/=1.02;
+		// 	}
+
+		// 	ctx.strokeRect(148,188,280,282);
+		// 	animation = requestAnimationFrame(drawshaker);
+
+		// 	if(speed<=1){
+		// 		cancelAnimationFrame(animation);
+		// 	}
+			
+		// }
+
+		var xFlow = [],
+		yFlow = [];
+
+		var xDistance = [];
+		var objSize = [];
+
+		var blur =[],
+		speed = [];
+
+		var color = [];
+		var colorArray = ['#2a8951','#309c5d','#184e2e','#247546'];
+
+		var flowAnimation;
+
+		startFlow();
+		function startFlow(){
+			for(var i =0;i<=100;i++){
+				xFlow[i] = Math.floor(Math.random() * 5) + 1;
+				yFlow[i] = Math.floor(Math.random() * 101) + 100;
+
+				xDistance[i] = 200-xFlow[i];
+				objSize[i] = Math.floor(Math.random() * 8) + 5;
+				color[i] = colorArray[Math.floor(Math.random() * 3) + 0];
+
+				blur[i] = 1;
+				speed[i] = Math.floor(Math.random() * 13) + 10;
+			}
+
+			flow();
+			function flow(){
+
+				ctx.clearRect(0,0,canvasDraw.width,canvasDraw.height);
+
+				for(var i =0;i<=100;i++){
+					ctx.save();
+					ctx.fillStyle = color[i];
+					ctx.globalAlpha = blur[i];
+					ctx.fillRect(xFlow[i],yFlow[i],objSize[i],objSize[i]);
+					ctx.restore();
+
+					xFlow[i]+=speed[i];
+					blur[i]= (200-xFlow[i])/xDistance[i];
+
+					if(xFlow[i]>=200){
+						xFlow[i] = Math.floor(Math.random() * 5) + 1;
+						yFlow[i] = Math.floor(Math.random() * 101) + 100;
+
+						xDistance[i] = 200-xFlow[i];
+						objSize[i] = Math.floor(Math.random() * 8) + 5;
+						color[i] = colorArray[Math.floor(Math.random() * 3) + 0];
+
+						blur[i] = 1;
+						speed[i] = Math.floor(Math.random() * 13) + 10;
+					}
+				}
+
+				flowAnimation = requestAnimationFrame(flow);
+			}
+		}
+
+		// function resize(){    
+		//     $("#canvas").outerHeight($(window).height()-$("#canvas").offset().top- Math.abs($("#canvas").outerHeight(true) - $("#canvas").outerHeight()));
+		//   }
+		//   $(document).ready(function(){
+		//     resize();
+		//     $(window).on("resize", function(){                      
+		//         resize();
+		//     });
+		//   });
+	</script>
+</body>
+</html>

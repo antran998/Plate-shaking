@@ -1,0 +1,187 @@
+body{
+	text-align: center;
+	background: url('../img/background.png');
+	background-size: cover;
+	background-attachment: fixed;
+}
+.page-wrap{
+	min-width: 1325px;
+	max-width: 1326px;
+	margin: 0 auto;
+}
+#canvasDraw{
+	/*border: 1px solid blue;*/
+	margin: 0 auto;
+}
+#canvasDraw2{
+	/*border: 1px solid red;*/
+	margin: 0 auto;
+	display: none;
+}
+.containerTopButtons{
+	position: absolute;
+	z-index: 10px;
+	top: 0px;
+	left: 510px;
+	width: 652px;
+	height: 150px;
+	/*border: 1px solid blue;*/
+	background-image: url('../img/top-buttons1.png');
+	background-repeat: no-repeat;
+}
+.cup{
+	position: absolute;
+	z-index: 12px;
+	top: 65px;
+	left: 773px;
+	width: 38px;
+	height: 35px;
+	/*border: 1px solid blue;*/
+	background-image: url('../img/cup.png');
+	background-repeat: no-repeat;
+	background-position: 50% 50%; 
+}
+.question{
+	position: absolute;
+	z-index: 12px;
+	top: 65px;
+	left: 848px;
+	width: 38px;
+	height: 35px;
+	/*border: 1px solid blue;*/
+	background-image: url('../img/question.png');
+	background-repeat: no-repeat;
+	background-position: 50% 50%; 
+}
+.moneyAmount{
+	position: absolute;
+	z-index: 12px;
+	top: 72px;
+	left: 960px;
+	width: 190px;
+	height: 20px;
+	/*border: 1px solid blue;*/
+	text-align: center;
+	color: white;
+}
+
+@keyframes movetop {
+    0% {background-position: 50% 50%;}
+    50% {background-position: 50% -100%;}
+    100% {background-position: 50% 50%;}
+}
+
+.cup:hover,.question:hover{
+	cursor: pointer;
+	animation: movetop 0.2s;
+}
+
+
+/*--Area bet--*/
+.row-1{
+	position: absolute;
+	color: white;
+	text-align: center;
+	width: 200px;	
+	/*border: 1px solid blue;*/
+}
+.row-2{
+	position: absolute;
+	color: white;
+	text-align: center;
+	width: 100px;	
+	/*border: 1px solid blue;*/
+}
+
+#area1{
+	top: 210px;
+	left: 555px;
+	font-family: lemon;
+}
+#area2{
+	top: 210px;
+	left: 835px;
+	font-family: lemon;
+}
+
+#area3{
+	top: 340px;
+	left: 535px;
+	font-family: lemon;
+}
+
+#area4{
+	top: 340px;
+	left: 675px;
+	font-family: lemon;
+}
+
+#area5{
+	top: 340px;
+	left: 813px;
+	font-family: lemon;
+}
+
+#area6{
+	top: 340px;
+	left: 948px;
+	font-family: lemon;
+}
+
+#countdown{
+	position: absolute;
+	color: white;
+	text-align: center;
+	width: 180px;
+	top: 220px;
+	left: 245px;
+	/*border: 1px solid red;*/
+	font-size: 150px;
+	color: yellow;
+	font-family: boldfont;
+}
+
+@keyframes MoveUpDown {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-40px); }
+    100% {transform: translateY(0px);}
+}
+
+table{
+	/*border: 1px solid blue;*/
+	position: absolute;
+	top: 22px;
+	left: 540px;
+	width: 179px;
+	height: 126px;
+	z-index: 99999
+}
+
+td{
+	color: white;
+	/*border: 1px solid yellow;*/
+	text-align: center;
+}
+
+#backgroundCanvas{
+	/*border: 1px solid red;*/
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	display: block;
+}
+
+@font-face {
+  	font-family: grobold;
+  	src:url('../font/GROBOLD.ttf') format('truetype');
+}
+
+@font-face {
+  	font-family: lemon;
+  	src:url('../font/LemonMilklight.otf') format('truetype');
+}
+
+@font-face {
+	font-family: "boldfont";
+  	src:url('../font/Harabara Mais Demo.otf') format('truetype');
+}

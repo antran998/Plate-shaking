@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Plate Shaking</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<canvas id="backgroundCanvas"></canvas>
+	<div class="page-wrap">
+		<div class="container-fluid">
+			<div class="col-sm-12">
+				<canvas id="canvasDraw"></canvas>
+				<canvas id="canvasDraw2"></canvas>
+				<div class="containerTopButtons"></div>
+				<div class="iconTopButtons cup"></div>
+				<div class="iconTopButtons question"></div>
+				<div class="iconTopButtons moneyAmount">
+					0
+				</div>
+
+				<div class="row-1" id="area1"></div>
+				<div class="row-1" id="area2"></div>
+
+				<div class="row-2" id="area3"></div>
+				<div class="row-2" id="area4"></div>
+				<div class="row-2" id="area5"></div>
+				<div class="row-2" id="area6"></div>
+
+				<div id="countdown"></div>
+
+				<table id="historyTable">
+					<tr>
+						<td id="hist00"></td>
+						<td id="hist01"></td>
+						<td id="hist02"></td>
+						<td id="hist03"></td>
+						<td id="hist04"></td>
+						<td id="hist05"></td>
+					</tr>
+					<tr>
+						<td id="hist10"></td>
+						<td id="hist11"></td>
+						<td id="hist12"></td>
+						<td id="hist13"></td>
+						<td id="hist14"></td>
+						<td id="hist15"></td>
+					</tr>
+					<tr>
+						<td id="hist20"></td>
+						<td id="hist21"></td>
+						<td id="hist22"></td>
+						<td id="hist23"></td>
+						<td id="hist24"></td>
+						<td id="hist25"></td>
+					</tr>
+					<tr>
+						<td id="hist30"></td>
+						<td id="hist31"></td>
+						<td id="hist32"></td>
+						<td id="hist33"></td>
+						<td id="hist34"></td>
+						<td id="hist35"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/start.js"></script>
+	<script type="text/javascript" src="js/click-hover.js"></script>
+	<script type="text/javascript" src="js/textOnShaker.js"></script>
+	<script type="text/javascript" src="js/shaking.js"></script>
+	<script type="text/javascript" src="js/result.js"></script>
+	<script type="text/javascript" src="js/reward.js"></script>
+	<script type="text/javascript" src="js/boardsite.js"></script>
+	<script type="text/javascript" src="js/backgroundFlow.js"></script>
+
+</body>
+</html>
